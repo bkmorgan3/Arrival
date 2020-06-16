@@ -14,6 +14,7 @@
   text-align: center;
   margin: 5px;
   padding: 5px;
+  background-color: rgb(229, 229, 243);
 }
 
 .product-container img {
@@ -28,4 +29,14 @@
 .button {
   margin: 10px;
   border-radius: 3px;
+  height: 35px;
+  width: 70px;
+}
+
+.message {
+  text-align: center;
+}
+
+.empty {
+  text-align: center;
 }

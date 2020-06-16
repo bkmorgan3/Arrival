@@ -12,11 +12,14 @@ const getProducts = async (req, res, next) => {
 }
 
 const showProductDetail = async (req, res, next) => {
+  console.log("req.params", req.params.id)
   try {
-    // const products = await pool.query(
-
-    // )
-  } catch (error) {
+    const product = await pool.query(
+      `SELECT products.prod_name, products.description, products.image, products.price, products.in_set, sets.set_name FROM products LEFT JOIN sets ON products.in_set = sets.set_id WHERE product_id = $1`, [req.params.id]
+    )
+    res.locals.product = product.rows[0]
+    return next()
+  } catch (err) {
     console.error(err)
     return next(err)
   }

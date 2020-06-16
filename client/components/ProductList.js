@@ -5,12 +5,13 @@ class ProductList extends Component {
     super(props)
   }
   render() {
-    const { products, editProduct, deleteProduct } = this.props;
+    const { products, editProduct, deleteProduct, getProductDetail } = this.props;
 
     return (
       <div className="main">
         {products.map(product => (
           <Product
+            getProductDetail={() => getProductDetail(product)}
             deleteProduct={() => deleteProduct(product)}
             editProduct={() => editProduct(product)}
             key={product.product_id}

@@ -15,7 +15,7 @@ app.get("/api/products", getProducts, (req, res) => {
 });
 
 app.get("/api/products/:id", showProductDetail, (req, res) => {
-  res.status(200).json({})
+  res.status(200).json(res.locals.product)
 });
 
 app.listen(PORT, () => {
