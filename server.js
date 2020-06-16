@@ -5,15 +5,19 @@ const bodyParser = require("body-parser");
 const app = express();
 const PORT = 3000;
 
-const { getProducts } = require("./handlers/productHandler")
+const { getProducts, showProductDetail } = require("./handlers/productHandler");
 
-app.use(cors())
+app.use(cors());
 app.use(bodyParser.json());
 
 app.get("/api/products", getProducts, (req, res) => {
   res.status(200).json(res.locals.products);
-})
+});
+
+app.get("/api/products/:id", showProductDetail, (req, res) => {
+  res.status(200).json({})
+});
 
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`)
-})
+});
